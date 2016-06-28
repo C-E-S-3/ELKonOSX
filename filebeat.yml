@@ -10,7 +10,7 @@ filebeat:
 
 output:  
   logstash:
-    hosts: ["Dogfish.local:5044"]
+    hosts: ["HOSTNAME:5044"]
     index: filebeat
     bulk_max_size: 1024
     tls:

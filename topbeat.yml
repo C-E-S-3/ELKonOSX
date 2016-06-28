@@ -4,7 +4,7 @@ input:
   stats:
 output:  
   logstash:
-    hosts: ["Dogfish.local:5044"]
+    hosts: ["HOSTNAME:5044"]
     index: topbeat
     tls:
       # List of root certificates for HTTPS server verifications

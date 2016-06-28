@@ -31,7 +31,7 @@ procs:
 
 output:  
   logstash:
-    hosts: ["Dogfish.local:5044"]
+    hosts: ["HOSTNAME:5044"]
     index: packetbeat
     tls:
       certificate_authorities: ["/usr/local/etc/openssl/certs/logstash-forwarder.crt"]
