@@ -1,0 +1,16 @@
+input:  
+  period: 10
+  procs: [".*"]
+  stats:
+output:  
+  logstash:
+    hosts: ["Dogfish.local:5044"]
+    index: topbeat
+    tls:
+      # List of root certificates for HTTPS server verifications
+      certificate_authorities: ["/usr/local/etc/openssl/certs/logstash-forwarder.crt"]
+shipper:  
+logging:
+  to_syslog: true
+  files:
+    rotateeverybytes: 10485760 # = 10MB
