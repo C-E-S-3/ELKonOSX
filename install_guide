@@ -1,0 +1,55 @@
+
+
+#Create directory for downlaoded binaries
+mkdir ~/Downloads/ELK
+
+#Move into ELK download directory
+cd ~/Downloads/ELK
+
+#Download prereqs - Links updated 6/27/2016
+
+#Elasticsearch
+wget https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.3.3/elasticsearch-2.3.3.tar.gz
+
+#Logstash
+wget https://download.elastic.co/logstash/logstash/logstash-5.0.0-alpha3.tar.gz
+
+#Kibana
+wget https://download.elastic.co/kibana/kibana/kibana-4.5.1-darwin-x64.tar.gz
+
+#Packetbeat
+wget https://download.elastic.co/beats/packetbeat/packetbeat-1.2.3-darwin.tgz
+
+#Filebeat
+wget https://download.elastic.co/beats/filebeat/filebeat-1.2.3-darwin.tgz
+
+#Topbeat
+wget https://download.elastic.co/beats/topbeat/topbeat-1.2.3-darwin.tgz
+
+#Extract the downloaded files
+for i in *.tar.gz; do echo Now extracting $i; tar zxf $i; done
+
+#Move into correct locations.  Ideally on Linux we would move into /opt but Mac doesn't use /opt and most things go into /usr/local.
+mkdir /usr/local/elk
+
+#Copy the extracted files into working directory
+for i in $(ls -d ~/Downloads/ELK/*/); do echo Moving ${i%%/} to /usr/local/ELK/; cp -R ${i%%/} /usr/local/ELK/; done
+
+#To help keep with standards we will use symlinks to more appropriate directories - This also helps with moving to new versions.
+for i in $(ls -d /usr/local/elk/*/); do dir="$(cut -d '-' -f 1 <<< "$i")"; file=${dir##*/}; echo Symlinking $i to /usr/local/opt/$file; ln -s $i /usr/local/opt/$file; done
+
+#Download config files
+
+#Elasticsearch
+
+#Logstash
+
+#Kibana
+
+#Topbeat
+
+#Packetbeat
+
+$Filebeat
+
+
